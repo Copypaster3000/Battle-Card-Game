@@ -17,7 +17,7 @@ class cll_node : public defense_card
 {
 	public:
 		cll_node(void); //Sets card attributes to half power
-		cll_node(char* name, int str, int tp, int hl); //Sets card attributes to values passed in
+		cll_node(const char* name, int str, int tp, int hl); //Sets card attributes to values passed in
 		~cll_node(void); //Destructor
 		int create_cll(cll_node* & rear, int num_nodes); //Creates cll of 100 defense cards with rear pointer as the pointer passed in
 

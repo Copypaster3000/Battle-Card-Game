@@ -16,8 +16,9 @@ class attack_card : public card
 {
 	public:
 		attack_card(void); //Sets card attributes to half power
-		attack_card(char* name, int str, int typ); //Sets name, strength, and attack type to values passed in
+		attack_card(const char* name, int str, int typ); //Sets name, strength, and attack type to values passed in
 		~attack_card(void);
+		void display(void); //Displays card stats
 
 	private:
 		int strength;

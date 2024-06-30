@@ -16,6 +16,7 @@ class heal_card : public card
 	public:
 		heal_card(void);
 		~heal_card(void);
+		void display(void); //Displays cards stats
 
 	private:
 		int strength;

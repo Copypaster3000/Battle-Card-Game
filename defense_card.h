@@ -16,8 +16,9 @@ class defense_card : public card
 {
 	public:
 		defense_card(void); //Sets card attributes to half power
-		defense_card(char* name, int str, int type, int heal); //Sets card attributes to values passed in
+		defense_card(const char* name, int str, int type, int heal); //Sets card attributes to values passed in
 		~defense_card(void);
+		void display(void); //Displays card stats
 
 	private:
 		int strength;

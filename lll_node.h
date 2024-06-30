@@ -17,7 +17,7 @@ class lll_node : public attack_card
 {
 	public:
 		lll_node(void); //default constructor
-		lll_node(char* strng, int str, int typ); //constructor with arguements to set card strength and type and name
+		lll_node(const char* strng, int str, int typ); //constructor with arguements to set card strength and type and name
 		~lll_node(void);
 		int create_lll(lll_node* & head, int num_nodes); //Pass in the head pointer to this funciton to create a lll of random cards
 

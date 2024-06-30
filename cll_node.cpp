@@ -14,7 +14,7 @@ cll_node::cll_node(void) : defense_card("Defense Card", 190, 1, 62), next(nullpt
 
 
 //constructor, sets card attributes to values passed in
-cll_node::cll_node(char* name, int str, int tp, int hl) : defense_card("Defense Card", str, tp, hl), next(nullptr)
+cll_node::cll_node(const char* name, int str, int tp, int hl) : defense_card("Defense Card", str, tp, hl), next(nullptr)
 {}
 
 

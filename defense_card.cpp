@@ -15,10 +15,23 @@ defense_card::defense_card(void) : card("Defense Card"), strength(190), type(1),
 
 
 //constructor, sets card attributes to values passed in
-defense_card::defense_card(char* name, int str, int typ, int hl) : card(name), strength(str), type(typ), heal(hl)
+defense_card::defense_card(const char* name, int str, int typ, int hl) : card(name), strength(str), type(typ), heal(hl)
 {}
 
 
 //destructor
 defense_card::~defense_card(void)
 {}
+
+
+//displays cards stats
+void defense_card::display(void)
+{
+	cout << name << endl;
+	cout << "Strength: " << strength << endl;
+	cout << "Type: " << type << endl;
+	cout << "Heal Strength: " << heal << endl;
+
+	return;
+}
+

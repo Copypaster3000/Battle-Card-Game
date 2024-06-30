@@ -14,7 +14,7 @@ lll_node::lll_node(void) : attack_card("Attack Card", 250, 1), next(nullptr)
 {}
 
 //constructor. The initilzation list calls it's parent class's constructor to set the strength and attack type for the attack card
-lll_node::lll_node(char* strng, int str, int typ) : attack_card(strng, str, typ), next(nullptr)
+lll_node::lll_node(const char* strng, int str, int typ) : attack_card(strng, str, typ), next(nullptr)
 {
 }
 

@@ -10,17 +10,18 @@
 #define CARD_H
 
 #include <iostream>
+using namespace std;
 
 class card
 {
     public:
         card(void);
-		card(char* str);
+		card(const char* str);
 
         ~card(void);
 
 
-    private:
+    protected:
 		char* name;
 
 };

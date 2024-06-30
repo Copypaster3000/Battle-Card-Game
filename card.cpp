@@ -17,7 +17,7 @@ card::card(void) : name(nullptr)
 
 //constructor
 //this allows you to set the cards strength, card_move, and move_type when the object is created
-card::card(char* str)
+card::card(const char* str)
 {
 	name = new char[strlen(str) + 1]; //Allocates memory dynamically for card type
 	strcpy(name, str);
