@@ -34,6 +34,17 @@ void attack_card::display(void)
 }
 
 
+//Subtracts attack strength from opponents health
+void attack_card::deal_damage(int & health)
+{
+	health = health - strength;
+
+	return;
+}
+
+
+
+
 	
 
 

@@ -20,7 +20,7 @@ using namespace std;
 class player
 {
     public:
-		player(string nm); //Constructor, pass in name of player, creats player with full decks of each card
+		player(string nm, int offset); //Constructor, pass in name of player, and unique offset for random num generator, creats player with full decks of each card
         ~player(void);
         int update_health(int impact); //Updates players health based off results from last battle
 		int get_card_choice(void); //Gets card choice from user, sets data member, returns 0 for success or 1 for invalid input

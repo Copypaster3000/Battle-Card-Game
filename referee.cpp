@@ -44,7 +44,8 @@ void referee::intro(void)
 	cout << "Lastly there are heal cards. Heal cards give a guarenteed 250 health to you each" << endl;
 	cout << "time you play it. But they do not defened against attacks or do any damage to your opponent." << endl;
 	cout << "The stats for all the cards are randomly generated to be somewhere within their listed ranges." << endl;
-	cout << "The player that chooses their card first will alternate each round.\n" << endl;
+	cout << "The player that chooses their card first will alternate each round." << endl;
+	cout << "Each player is not allowed to look at the type of card the other player chooses before the battle!\n" << endl;
 	cout << "Good luck and may the best player win!\n" << endl;
 
 	return;
@@ -63,8 +64,8 @@ void referee::setup_players(void)
 	getline(cin, name2);
 	cout << "Player two, hence forth you shall be called \"" << name2 << "\"." << endl;
 
-	player1 = new player(name1);
-	player2 = new player(name2);
+	player1 = new player(name1, 1);
+	player2 = new player(name2, 2);
 
 	return;
 }

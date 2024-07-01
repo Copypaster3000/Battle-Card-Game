@@ -13,10 +13,10 @@
 
 //constructor
 //sets players name to string passed in, health to 1000, and creates 100 heal cards in the vector
-player::player(string nm) : health(1000), heal_cards(100)
+player::player(string nm, int offset) : health(1000), heal_cards(100)
 {
 	//Generates a random seed for creating cards with random stats
-	srand(time(NULL));
+	srand(time(NULL) + offset);
 
 	name = new char[nm.length() + 1];
 	strcpy(name, nm.c_str());
@@ -109,7 +109,7 @@ int player::attack_v_defend(player* & other_player)
 void player::battle(player* & other_player)
 {
 	//If an attack and defend card are both played this round
-	if(attack_v_defend(other_player))
+	if(!attack_v_defend(other_player))
 	{
 
 	}
