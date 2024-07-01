@@ -24,14 +24,4 @@ defense_card::~defense_card(void)
 {}
 
 
-//displays cards stats
-void defense_card::display(void)
-{
-	cout << name << endl;
-	cout << "Strength: " << strength << endl;
-	cout << "Type: " << type << endl;
-	cout << "Heal Strength: " << heal << endl;
-
-	return;
-}
 

@@ -20,6 +20,9 @@ class cll_node : public defense_card
 		cll_node(const char* name, int str, int tp, int hl); //Sets card attributes to values passed in
 		~cll_node(void); //Destructor
 		int create_cll(cll_node* & rear, int num_nodes); //Creates cll of 100 defense cards with rear pointer as the pointer passed in
+		void next_card(cll_node* & rear); //Deletes card on front of cll (removes it from deck)
+		void display(void); //Displays card on front of cll
+	
 
 	private:
 		cll_node* next;

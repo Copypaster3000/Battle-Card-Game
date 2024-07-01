@@ -34,3 +34,30 @@ int cll_node::create_cll(cll_node* & rear, int num_nodes)
 	//Recursively calls the funciton again, passing the this nodes next pointer as rear and decrements the num_nodes counter
 	return create_cll(rear->next, --num_nodes); 
 }
+
+
+//displays card stats of next card, because they are in a cll
+void cll_node::display(void)
+{
+	cout << next->name << endl;
+	cout << "Strength: " << next->strength << endl;
+	cout << "Type: " << next->type << endl;
+	cout << "Heal Strength: " << next->heal << endl;
+
+	return;
+}
+
+
+
+//deletes card in front of cll
+void cll_node::next_card(cll_node* & rear)
+{
+	cll_node* temp = rear->next->next;
+	delete rear->next;
+	rear->next = temp;
+
+	return;
+}
+
+
+

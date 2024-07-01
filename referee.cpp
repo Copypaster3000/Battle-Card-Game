@@ -97,6 +97,26 @@ void referee::prepare(int round)
 }
 
 
+//Facilitate battle, update card decks, check for winner, update round num
+void referee::battle_ground(void)
+{
+	player1->battle(player2); //Damage and healing dealt to both players health
+
+	player1->update_decks(); //Each player updates decks after having played a card
+	player2->update_decks();
+
+	
+	return;
+}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -36,3 +36,17 @@ int lll_node::create_lll(lll_node* & head, int num_nodes)
 	return create_lll(head->next, --num_nodes);
 }
 
+
+//pass in lll_node* head of attack cards
+void lll_node::next_card(lll_node* & head)
+{
+	lll_node* temp = head;
+	head = head->next;
+	delete temp;
+
+	return;
+}
+
+
+	
+

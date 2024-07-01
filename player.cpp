@@ -95,9 +95,62 @@ int player::display_card(void)
 
 
 
+//Pass in the other player object by reference
+int player::attack_v_defend(player* & other_player)
+{
+	//Returns 0 if it is an attack vs defense card round
+	if((card_choice == 1 && other_player->card_choice == 2) || (card_choice == 2 && other_player->card_choice == 1)) return 0;
+
+	return 1;
+}
+
+
+//plass in other player's class object
+void player::battle(player* & other_player)
+{
+	//If an attack and defend card are both played this round
+	if(attack_v_defend(other_player))
+	{
+
+	}
+	else //No attacks are being defended
+	{
+		//Deal attack damage to other player's health
+		if(card_choice == 1) attack_head->deal_damage(other_player->health);
+		if(other_player->card_choice == 1) other_player->attack_head->deal_damage(health);
+	}
+
+	return;
+}
+
+
+int player::check_decks(void)
+{
+	
+
+	return 0;
+}
 
 
 
+//Updates card decks
+int player::update_decks(void)
+{
+	if(card_choice == 1) attack_head->next_card(attack_head); //Deletes card just played, makes next card new head
+
+	if(card_choice == 2) defense_rear->next_card(defense_rear); //Removes card just played from deck
+
+	if(card_choice == 3) heal_cards.pop_back();
+
+	return 0;
+}
+
+
+
+
+
+
+	
 
 
 
