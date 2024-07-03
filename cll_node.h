@@ -6,6 +6,7 @@
 //6/27/2024
 //This is the header file for the cll_node class which is derived from the defense_card class which is a derivation of the card class.
 //This class will be used as a node in a circular linked list which will hold defense cards.
+//
 
 #ifndef CLL_NODE_H
 #define CLL_NODE_H
@@ -22,6 +23,9 @@ class cll_node : public defense_card
 		int create_cll(cll_node* & rear, int num_nodes); //Creates cll of 100 defense cards with rear pointer as the pointer passed in
 		void next_card(cll_node* & rear); //Deletes card on front of cll (removes it from deck)
 		void display(void); //Displays card on front of cll
+		int defense(const lll_node & attack_card, int & health); //Pass in lll_node object, so dereference it when passing in, Defends against attack card, updates health passed in, uses card from front of cll
+		int heal_up(int & health); //Heals health based on card in front of cll heal lvl
+
 	
 
 	private:

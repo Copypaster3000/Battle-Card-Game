@@ -6,6 +6,7 @@
 //6/27/2024
 //This is the header file for the lll_card which is dervied from the attack_card class which is derived from the card class.
 //This class will be used as the node for a linear linked list which will hold attack cards.
+//
 
 #ifndef LLL_NODE_H
 #define LLL_NODE_H
