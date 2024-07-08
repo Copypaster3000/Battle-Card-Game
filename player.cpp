@@ -5,6 +5,7 @@
 //Program 1
 //6/27/2024
 //This is the file for the player class definitions
+//
 
 #include "player.h"
 #include <cstdlib>
@@ -134,15 +135,12 @@ void player::battle(player* & other_player)
 	else //No attacks are being defended
 	{
 		//Deal attack damage to other player's health
-		if(card_choice == 1) attack_head->deal_damage(other_player->health);
-		if(other_player->card_choice == 1) other_player->attack_head->deal_damage(health);
+		if(card_choice == 1) other_player->health -= attack_head->get_strength();
+		if(other_player->card_choice == 1) health -= other_player->attack_head->get_strength();
 
 		//Increases player's health with heal card strength if they played a heal card
-		if(card_choice == 3) 
-			if(heal_cards.back().heal_up(health)) cout << "Error healing player." << endl;
-
-		if(other_player->card_choice == 3) 
-			if(other_player->heal_cards.back().heal_up(other_player->health)) cout << "Error healing player." << endl;
+		if(card_choice == 3) health += heal_cards.back().heal_up();
+		if(other_player->card_choice == 3) other_player->health += other_player->heal_cards.back().heal_up();
 	}
 
 	return;
@@ -190,7 +188,7 @@ void player::won(void)
 {
 	cout << "\n********************************************" << endl;
     cout << "*                                          *" << endl;
-    cout << "*                 Victory!                 *" << endl;
+    cout << "*                Victory!                  *" << endl;
     cout << "*                                          *" << endl;
     cout << "********************************************" << endl;
     cout << "                                            " << endl;

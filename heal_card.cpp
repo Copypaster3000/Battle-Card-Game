@@ -1,6 +1,10 @@
 //heal_card.cpp
 //Drake Wheeler
-//
+//Karla Fant
+//CS302
+//Program 1
+//6/27/2024
+//This is file holds the class definitions for the heal class
 
 #include "heal_card.h"
 
@@ -30,12 +34,10 @@ void heal_card::display(void)
 }
 
 
-//increases health passed in by heal card's strength
-int heal_card::heal_up(int & p_health)
+//returns strength to add to player's health
+int heal_card::heal_up(void)
 {
-	p_health += strength;
-
-	return 0;
+	return strength;
 }
 
 

@@ -5,6 +5,7 @@
 //Program 1
 //6/27/2024
 //This file holds the function definitions for the referee class. This class organizes and runs the game.
+//
 
 #include "referee.h"
 
@@ -129,8 +130,23 @@ int referee::winner_check(void)
 //end of game
 void referee::results(int winner)
 {
-	if(winner == 3) cout << "Wow you each killed eachother in the last battle round. You are equally matched oppenents. Good game!\n\nThe game is now over.\n" << endl;
-	
+	if(winner == 3)
+	{
+		cout << "\n**********************************" << endl;
+    	cout << "*                                *" << endl;
+    	cout << "*          IT'S A TIE!           *" << endl;
+    	cout << "*                                *" << endl;
+    	cout << "**********************************" << endl;
+    	cout << "*                                *" << endl;
+    	cout << "*       A RARE OCCURRENCE!       *" << endl;
+    	cout << "*     BOTH PLAYERS FOUGHT        *" << endl;
+    	cout << "*      VALIANTLY TO DEATH!       *" << endl;
+		cout << "*   YOU WERE EACH KILLED FROM    *" << endl;
+		cout << "*   YOUR OPPENENTS LAST ATTACK!  *" << endl;
+    	cout << "*                                *" << endl;
+    	cout << "**********************************" << endl;
+    	cout << "\nThe game is now over.\n" << endl;
+	}
 	else if(winner == 2) player1->won();
 	else if(winner == 1) player2->won();
 

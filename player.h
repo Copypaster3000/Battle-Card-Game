@@ -5,7 +5,6 @@
 //Program 1
 //6/27/2024
 //This is the header file for the player class
-//
 
 #ifndef PLAYER_H
 #define PLAYER_H

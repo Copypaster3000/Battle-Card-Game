@@ -6,7 +6,6 @@
 //6/27/2024
 //This is the header file for the cll_node class which is derived from the defense_card class which is a derivation of the card class.
 //This class will be used as a node in a circular linked list which will hold defense cards.
-//
 
 #ifndef CLL_NODE_H
 #define CLL_NODE_H

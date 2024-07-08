@@ -5,6 +5,7 @@
 //Program 1
 //6/27/2024
 //This is the file for the attack_card class which manages attack cards
+//
 
 #include "attack_card.h"
 
@@ -58,7 +59,7 @@ attack_card::~attack_card(void)
 
 
 //displays card stats to user
-void attack_card::display(void)
+void attack_card::display(void) const
 {
 	cout << name << endl;
 	cout << "Strength: " << strength << endl;
@@ -67,16 +68,6 @@ void attack_card::display(void)
 
 	return;
 }
-
-
-//Subtracts attack strength from opponents health
-void attack_card::deal_damage(int & health)
-{
-	health = health - strength;
-
-	return;
-}
-
 
 
 int attack_card::get_strength(void) const

@@ -5,7 +5,6 @@
 //Program 1
 //6/27/2024
 //This is the header file for the referee class
-//
 
 #include "player.h"
 
