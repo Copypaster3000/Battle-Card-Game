@@ -15,7 +15,8 @@
 class heal_card : public card
 {
 	public:
-		heal_card(int str); //Pass in heal card strength
+		heal_card(void); //Default constructor
+		heal_card(const string & nm, int str); //Constructor, pass in name as string and strength lvl
 		~heal_card(void);
 		void display(void); //Displays cards stats
 		int heal_up(int & health); //Increase health passed in by heal card's strength

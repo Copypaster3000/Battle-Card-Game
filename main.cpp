@@ -14,12 +14,12 @@ int main()
 	{
 		game.prepare(round_num);
 		game.battle_ground();
+		winner = game.winner_check();
 
 		++round_num;
 	}
 
-
-
+	game.results(winner);
 
     return 0;
 }

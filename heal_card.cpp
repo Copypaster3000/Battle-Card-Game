@@ -5,8 +5,13 @@
 #include "heal_card.h"
 
 
+//default constructor
+heal_card::heal_card(void) : card("Heal Card"), strength(250)
+{}
+
+
 //constructor
-heal_card::heal_card(int str) : card("Heal Card"), strength(str)
+heal_card::heal_card(const string & nm, int str) : card(nm), strength(str)
 {}
 
 

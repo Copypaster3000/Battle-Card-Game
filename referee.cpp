@@ -26,12 +26,12 @@ void referee::intro(void)
 {
 	cout << "\nWelcome to a game of battle... to the death!\n" << endl;
 	cout << "This is a two player card game. Each player starts with 1000 health." << endl;
-	cout << "The first player to reducer their opponents health to zero wins. Each" << endl;
-	cout << "Player is dealt three decks of cards at the beginning of the game." << endl;
+	cout << "The first player to reduce their opponents health to zero wins. Each" << endl;
+	cout << "player is dealt three decks of cards at the beginning of the game." << endl;
 	cout << "There are attack cards, defense cards, and heal cards. Each round both" << endl;
 	cout << "players will select one card from a deck of their choice. The cards will" << endl;
 	cout << "then be played against each other and the results will impact each players" << endl;
-	cout << "health. Attack cards have a 500 to 0 strength. The level of strength is the" << endl;
+	cout << "health. Attack cards have a strenght level of 500 to 0. The level of strength is the" << endl;
 	cout << "amount of damage that can be done to the enemies health. However there are two" << endl;
 	cout << "different types of attacks. If the enemy chooses a defense card that corresponds" << endl;
 	cout << "to the type of attack card you have, your attack will be reduced in strength by" << endl;
@@ -41,8 +41,8 @@ void referee::intro(void)
 	cout << "not block the attack the damage will still be done. There are two types of attack" << endl;
 	cout << "and defense cards. Defense cards also have between 150 to 0 heal strength. Reguardless" << endl;
 	cout << "of the other players card, the heal strength will be added to your health." << endl;
-	cout << "Lastly there are heal cards. Heal cards give a guarenteed 250 health to you each" << endl;
-	cout << "time you play it. But they do not defened against attacks or do any damage to your opponent." << endl;
+	cout << "Lastly there are heal cards. Heal cards have strenght from 300 to 200, which increases you health" << endl;
+	cout << "each time you play it. But they do not defened against attacks or do any damage to your opponent." << endl;
 	cout << "The stats for all the cards are randomly generated to be somewhere within their listed ranges." << endl;
 	cout << "The player that chooses their card first will alternate each round." << endl;
 	cout << "Each player is not allowed to look at the type of card the other player chooses before the battle!\n" << endl;
@@ -112,6 +112,30 @@ void referee::battle_ground(void)
 	return;
 }
 
+
+//checks if the game is over
+int referee::winner_check(void)
+{
+	if(player1->dead() && player2->dead()) return 3;
+
+	if(player1->dead()) return 1;
+
+	if(player2->dead()) return 2;
+
+	return 0;
+}
+
+
+//end of game
+void referee::results(int winner)
+{
+	if(winner == 3) cout << "Wow you each killed eachother in the last battle round. You are equally matched oppenents. Good game!\n\nThe game is now over.\n" << endl;
+	
+	else if(winner == 2) player1->won();
+	else if(winner == 1) player2->won();
+
+	return;
+}
 
 
 

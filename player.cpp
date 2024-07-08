@@ -13,13 +13,10 @@
 
 //constructor
 //sets players name to string passed in, health to 1000, and creates 100 heal cards in the vector
-player::player(string nm, int offset) : health(1000)
+player::player(string nm, int offset) : name(nm), health(1000)
 {
 	//Generates a random seed for creating cards with random stats
 	srand(time(NULL) + offset);
-
-	name = new char[nm.length() + 1];
-	strcpy(name, nm.c_str());
 
 	//Creats objects of node classes to user their functions to create data structures of cards
 	lll_node attack_cards; 
@@ -127,8 +124,8 @@ void player::battle(player* & other_player)
 	if(!attack_v_defend(other_player))
 	{
 		//Deals appropriate damage to defending player
-		if(card_choice == 1) other_player->defense_rear->defense(*attack_head, other_player->health);
-		else defense_rear->defense(*other_player->attack_head, health);
+		if(card_choice == 1) other_player->health -= other_player->defense_rear->defense(*attack_head);
+		else health -= defense_rear->defense(*other_player->attack_head);
 		//Heals player that played defense card
 		if(card_choice ==2) defense_rear->heal_up(health);
 		else other_player->defense_rear->heal_up(other_player->health);
@@ -172,15 +169,40 @@ void player::create_heal_deck(int num_cards)
 {
 	for(int i = 0; i < num_cards; ++i)
 	{
-		heal_cards.push_back(heal_card(rand() % 100 + 200));
+		heal_cards.push_back(heal_card("Heal Card", rand() % 100 + 200));
 	}
 
 	return;
 }
 
 
-	
+//retuns 1 if player is dead, 0 if not	
+int player::dead(void)
+{
+	if(health <= 0) return 1;
 
+	return 0;
+}
+
+
+//returns winning message
+void player::won(void)
+{
+	cout << "\n********************************************" << endl;
+    cout << "*                                          *" << endl;
+    cout << "*                 Victory!                 *" << endl;
+    cout << "*                                          *" << endl;
+    cout << "********************************************" << endl;
+    cout << "                                            " << endl;
+    cout << "    Well done, *" << name << "*!            " << endl;
+    cout << "    You defeated your opponent with         " << endl;
+    cout << "    " << health << " health left.           " << endl;
+    cout << "                                            " << endl;
+    cout << "********************************************" << endl;
+    cout << "\nThe game is now over.\n" << endl;
+
+	return;
+}
 
 
 

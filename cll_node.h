@@ -18,12 +18,12 @@ class cll_node : public defense_card
 {
 	public:
 		cll_node(void); //Sets card attributes to half power
-		cll_node(const char* name, int str, int tp, int hl); //Sets card attributes to values passed in
+		cll_node(const string & name, int str, int tp, int hl); //Sets card attributes to values passed in
 		~cll_node(void); //Destructor
 		int create_cll(cll_node* & rear, int num_nodes); //Creates cll of 100 defense cards with rear pointer as the pointer passed in
 		void next_card(cll_node* & rear); //Deletes card on front of cll (removes it from deck)
 		void display(void); //Displays card on front of cll
-		int defense(const lll_node & attack_card, int & health); //Pass in lll_node object, so dereference it when passing in, Defends against attack card, updates health passed in, uses card from front of cll
+		int defense(const lll_node & attack_card); //Pass in lll_node object of attack card, so dereference it when passing in,returns damage done to defending player's health
 		int heal_up(int & health); //Heals health based on card in front of cll heal lvl
 
 	

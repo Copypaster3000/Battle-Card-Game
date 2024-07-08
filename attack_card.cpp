@@ -15,7 +15,7 @@ attack_card::attack_card(void) : card("Attack Card"), strength(250), type(1)
 
 
 //constructor, sets card attributes to values passed in
-attack_card::attack_card(const char* name, int str, int typ) : card(name), strength(str), type(typ)
+attack_card::attack_card(const string & name, int str, int typ) : card(name), strength(str), type(typ)
 {
 	const char* at_phrase = "If you don't block this high strength of an attack you're toast!";
 	phrase = new char[strlen(at_phrase) + 1];

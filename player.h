@@ -30,10 +30,13 @@ class player
 		void battle(player* & other_player); //Edits both player's health based on cards played this round
 		int update_decks(void); //Removes card played that round from deck, returns 1 if a card deck becomes empty, 0 if not
 		int check_decks(void); //Checks if there are still unused cards in each deck, returns 0 if there are, or the corresponding number for the deck that has run out
+		int dead(void); //returns 1 if player is dead, 0 if not
+		void won(void); //Returns winning message, call when this player wins
+
 
 		
     private:
-		char* name; //Players custom name
+		string name; //Players custom name
 		int health; //Players current health lvl
 		int card_choice; //holds int to represent current card chioce, 1) attack, 2) defense, 3) heal
 						 //

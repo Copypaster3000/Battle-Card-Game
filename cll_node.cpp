@@ -15,7 +15,7 @@ cll_node::cll_node(void) : defense_card("Defense Card", 190, 1, 62), next(nullpt
 
 
 //constructor, sets card attributes to values passed in
-cll_node::cll_node(const char* name, int str, int tp, int hl) : defense_card("Defense Card", str, tp, hl), next(nullptr)
+cll_node::cll_node(const string & name, int str, int tp, int hl) : defense_card("Defense Card", str, tp, hl), next(nullptr)
 {}
 
 
@@ -61,11 +61,11 @@ void cll_node::next_card(cll_node* & rear)
 }
 
 
-int cll_node::defense(const lll_node & attack_card, int & health)
+//return damage done to defending player healh, based on defense card in front of cll
+int cll_node::defense(const lll_node & attack_card)
 {
-	this->next->defend(attack_card, health);
+	return this->next->defend(attack_card);
 
-	return 0;
 }
 
 
