@@ -19,6 +19,7 @@ class attack_card : public card
 		attack_card(void); //Sets card attributes to half power
 		attack_card(const char* name, int str, int typ); //Sets name, strength, and attack type to values passed in
 		attack_card(const attack_card &); //copy constructor
+		attack_card & operator = (const attack_card &); //assignment 
 		~attack_card(void);
 		void display(void); //Displays card stats
 		void deal_damage(int & health); //Pass in the players health damage is being dealt to update health based on attack strength, use only when attack is not defended

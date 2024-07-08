@@ -7,12 +7,13 @@
 //This is the file for the card class definitions
 
 #include "card.h"
-#include "cstring"
 
 
 //default constructor
 card::card(void) : name(nullptr)
-{}
+{
+
+}
 
 
 //constructor
@@ -23,6 +24,30 @@ card::card(const char* str)
 	strcpy(name, str);
 	
 }
+
+
+//copy constructor
+card::card(const card & object) 
+{
+	name = new char[strlen(object.name) + 1];
+	strcpy(name, object.name);
+}
+
+
+//assignment
+card & card::operator = (const card & og_card)
+{
+	if(this == &og_card) return *this; //Check for self assignment
+
+	if(name) delete[] name; //If name has value, deallocate memory
+
+	name = new char[strlen(og_card.name) + 1]; //Allocate correct memory and assign value to name
+	strcpy(name, og_card.name);
+
+	return *this;
+}
+
+
 
 
 //destructor

@@ -21,6 +21,7 @@ class card
 		card(const char* str); //Constructor
 		card(const card &); //Copy constructor
         ~card(void); //Destructor
+		card & operator = (const card &); //assignment
 
 
     protected:

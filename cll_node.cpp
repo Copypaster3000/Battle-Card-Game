@@ -8,6 +8,7 @@
 
 #include "cll_node.h"
 
+
 //default constructor, sets card attributes at half power
 cll_node::cll_node(void) : defense_card("Defense Card", 190, 1, 62), next(nullptr)
 {}
@@ -60,4 +61,18 @@ void cll_node::next_card(cll_node* & rear)
 }
 
 
+int cll_node::defense(const lll_node & attack_card, int & health)
+{
+	this->next->defend(attack_card, health);
+
+	return 0;
+}
+
+
+
+int cll_node::heal_up(int & health)
+{
+
+	return next->heal_me(health);
+}
 

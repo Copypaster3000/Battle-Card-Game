@@ -13,7 +13,7 @@
 
 //constructor
 //sets players name to string passed in, health to 1000, and creates 100 heal cards in the vector
-player::player(string nm, int offset) : health(1000), heal_cards(100)
+player::player(string nm, int offset) : health(1000)
 {
 	//Generates a random seed for creating cards with random stats
 	srand(time(NULL) + offset);
@@ -28,6 +28,16 @@ player::player(string nm, int offset) : health(1000), heal_cards(100)
 	//Displays a warning if there is an error creating the LLL of attack cards
 	if(attack_cards.create_lll(attack_head, 100)) cout << "Error creating lll of attack cards." << endl;
 	if(defense_cards.create_cll(defense_rear, 100)) cout << "Error creating cll of defense cards." << endl;
+
+	create_heal_deck(100); //Creats 100 heal_card's in player's vector member
+}
+
+
+//destructor
+player::~player(void)
+{
+
+
 }
 
 
@@ -55,18 +65,23 @@ int player::get_card_choice(void)
 	cin >> choice;
 	cout << endl;
 
+	cin.clear();
+	cin.ignore(100, '\n'); //Clear input stream
+						  
+
 	card_choice = choice;
 
 	//Returns 0 for success or 1 for invalid input
 	if(choice == 1 || choice == 2 || choice == 3) return 0;
-	else return 1;
+	
+	return 1;
 }
 
 
 //Displays players current chosen card
 int player::display_card(void)
 {
-	cout << name << "'s card: \n" << endl;
+	cout << name << "'s card: " << endl;
 
 	if(card_choice == 1)
 	{
@@ -111,6 +126,12 @@ void player::battle(player* & other_player)
 	//If an attack and defend card are both played this round
 	if(!attack_v_defend(other_player))
 	{
+		//Deals appropriate damage to defending player
+		if(card_choice == 1) other_player->defense_rear->defense(*attack_head, other_player->health);
+		else defense_rear->defense(*other_player->attack_head, health);
+		//Heals player that played defense card
+		if(card_choice ==2) defense_rear->heal_up(health);
+		else other_player->defense_rear->heal_up(other_player->health);
 
 	}
 	else //No attacks are being defended
@@ -118,17 +139,16 @@ void player::battle(player* & other_player)
 		//Deal attack damage to other player's health
 		if(card_choice == 1) attack_head->deal_damage(other_player->health);
 		if(other_player->card_choice == 1) other_player->attack_head->deal_damage(health);
+
+		//Increases player's health with heal card strength if they played a heal card
+		if(card_choice == 3) 
+			if(heal_cards.back().heal_up(health)) cout << "Error healing player." << endl;
+
+		if(other_player->card_choice == 3) 
+			if(other_player->heal_cards.back().heal_up(other_player->health)) cout << "Error healing player." << endl;
 	}
 
 	return;
-}
-
-
-int player::check_decks(void)
-{
-	
-
-	return 0;
 }
 
 
@@ -147,6 +167,24 @@ int player::update_decks(void)
 
 
 
+//Creates vector of heal cards
+void player::create_heal_deck(int num_cards)
+{
+	for(int i = 0; i < num_cards; ++i)
+	{
+		heal_cards.push_back(heal_card(rand() % 100 + 200));
+	}
+
+	return;
+}
+
+
+	
+
+
+
+
+
 
 
 
@@ -158,12 +196,6 @@ int player::update_decks(void)
 
 
 
-//destructor
-player::~player(void)
-{
-
-
-}
 
 
 

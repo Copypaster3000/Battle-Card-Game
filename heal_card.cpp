@@ -6,7 +6,7 @@
 
 
 //constructor
-heal_card::heal_card(void) : card("Heal Card"), strength(250)
+heal_card::heal_card(int str) : card("Heal Card"), strength(str)
 {}
 
 
@@ -23,5 +23,15 @@ void heal_card::display(void)
 
 	return;
 }
+
+
+//increases health passed in by heal card's strength
+int heal_card::heal_up(int & p_health)
+{
+	p_health += strength;
+
+	return 0;
+}
+
 
 

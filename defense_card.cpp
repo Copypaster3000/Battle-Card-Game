@@ -24,4 +24,37 @@ defense_card::~defense_card(void)
 {}
 
 
+//Deals damage to health passed in based on attack card passed in and this defense card stats
+int defense_card::defend(const lll_node & attack_card, int & health)
+{
+	int damage = 0;
+
+	if(attack_card.get_type() == this->type) 
+	{
+		damage = attack_card.get_strength() - this->strength;
+		cout << "The defense card blocked up to " << this->strength << " of the attack." << endl;
+		if(damage > 0) health = health - damage;
+	}
+	else cout << "The attack was not defended." << endl;
+
+
+	return 0;
+}
+
+
+//increases health passed in by cards heal lvl
+int defense_card::heal_me(int & health)
+{
+	health += heal;
+
+	return 0;
+}
+
+
+
+
+
+
+
+
 

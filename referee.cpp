@@ -75,6 +75,8 @@ void referee::setup_players(void)
 //Shows player's health, gets playes card choice, displays players cards
 void referee::prepare(int round)
 {
+	cout << endl;
+
 	player1->display_health();
 	player2->display_health();
 	cout << endl;
