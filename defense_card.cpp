@@ -5,7 +5,6 @@
 //Program 1
 //6/27/2024
 //This is the file for the defense card class which manages defense cards
-//
 
 #include "defense_card.h"
 
@@ -26,7 +25,7 @@ defense_card::~defense_card(void)
 
 
 //Returns the amount of damage done to defending players health
-int defense_card::defend(const lll_node & attack_card)
+int defense_card::defend(const lll_node & attack_card) const
 {
 	int damage = 0;
 	int defended = 0;
@@ -39,9 +38,9 @@ int defense_card::defend(const lll_node & attack_card)
 
 		damage = attack_card.get_strength() - this->strength; //Sets damage to damage done to defending player's health
 		cout << "The defense card blocked " << defended << " of the attack." << endl; //Displays how much of the attack was defended to users
-		if(damage > 0)
-
-		return damage; //Returns damage
+																					  //
+		if(damage > 0) return damage; //Returns damage
+		else return 0; //Returns 0 for when the defense over powers attack
 	}
 	else cout << "The attack was not defended." << endl;
 
@@ -50,16 +49,22 @@ int defense_card::defend(const lll_node & attack_card)
 }
 
 
-//increases health passed in by cards heal lvl
-int defense_card::heal_me(int & health)
+//returns heal lvl of this defense card
+int defense_card::heal_me(void)
 {
-	health += heal;
-
-	return 0;
+	return heal;
 }
 
 
 
+//super charges defense card
+int defense_card::super_charge(void)
+{
+	heal = 500;
+	strength = 1000;
+
+	return 1;
+}
 
 
 

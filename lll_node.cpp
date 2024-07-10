@@ -5,7 +5,6 @@
 //Program 1
 //6/27/2024
 //This is file for the cll_node class. This class will act as a node in a linear linked list which will hold attack cards
-//
 
 #include "lll_node.h"
 
@@ -28,7 +27,9 @@ lll_node::~lll_node(void)
 //lll creator
 int lll_node::create_lll(lll_node* & head, int num_nodes)
 {
-	if(num_nodes == 0) return 0;
+	if(head) return 0; //Returns failure if there is already something at head
+
+	if(num_nodes == 0) return 1; //Returns success after creating all nodes
 
 	//Creates new node, passes in random number below 500 for strength lvl, and a 1 or 2 for attack type 
 	head = new lll_node("Attack Card", rand() % 500, (rand() % 2) + 1);
@@ -39,13 +40,15 @@ int lll_node::create_lll(lll_node* & head, int num_nodes)
 
 
 //pass in lll_node* head of attack cards
-void lll_node::next_card(lll_node* & head)
+int lll_node::next_card(lll_node* & head)
 {
-	lll_node* temp = head;
-	head = head->next;
-	delete temp;
+	if(!head) return 0; //returns error
 
-	return;
+	lll_node* temp = head; //Holds onto head
+	head = head->next; //Sets head to next card
+	delete temp; //deletes old head
+
+	return 1; //returns success
 }
 
 

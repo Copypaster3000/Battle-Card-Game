@@ -5,7 +5,6 @@
 //Program 1
 //6/27/2024
 //This is file holds the function for the cll_node class, this class acts as a node in a cll and manages it
-//
 
 #include "cll_node.h"
 
@@ -28,7 +27,9 @@ cll_node::~cll_node(void)
 //creates cll of 100 attack cards
 int cll_node::create_cll(cll_node* & rear, int num_nodes)
 {
-	if(!num_nodes) return 0; //Return success after num_nodes originally passed in is zero
+	if(rear) return 0;
+
+	if(!num_nodes) return 1; //Return success after num_nodes originally passed in is zero
 
 	//Creates a new card/node with random stats
 	rear = new cll_node("Defense Card", rand() % 375, rand() % 2 + 1, rand() % 125);
@@ -38,27 +39,31 @@ int cll_node::create_cll(cll_node* & rear, int num_nodes)
 }
 
 
-//displays card stats of next card, because they are in a cll
-void cll_node::display(void)
+//displays card stats of front card, because they are in a cll
+int cll_node::display(void) const
 {
+	if(!next || !next->name) return 0; //Return error if there is no card in front of cll or card does not have a name
+									   
 	cout << next->name << endl;
 	cout << "Strength: " << next->strength << endl;
 	cout << "Type: " << next->type << endl;
 	cout << "Heal Strength: " << next->heal << endl;
 
-	return;
+	return 1;
 }
 
 
 
 //deletes card in front of cll
-void cll_node::next_card(cll_node* & rear)
+int cll_node::next_card(cll_node* & rear)
 {
-	cll_node* temp = rear->next->next;
-	delete rear->next;
-	rear->next = temp;
+	if(!rear) return 0; //Returns 0 for error
+						
+	cll_node* temp = rear->next->next; //Holds onto next front of cll
+	delete rear->next; //Deletes old front of cll
+	rear->next = temp; //Sets rear->next to new front of cll
 
-	return;
+	return 1;
 }
 
 
@@ -66,14 +71,13 @@ void cll_node::next_card(cll_node* & rear)
 int cll_node::defense(const lll_node & attack_card)
 {
 	return this->next->defend(attack_card);
-
 }
 
 
-
-int cll_node::heal_up(int & health)
+//Returns heal lvl of defense card played
+int cll_node::heal_up(void)
 {
 
-	return next->heal_me(health);
+	return next->heal_me();
 }
 

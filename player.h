@@ -5,6 +5,7 @@
 //Program 1
 //6/27/2024
 //This is the header file for the player class
+//
 
 #ifndef PLAYER_H
 #define PLAYER_H
@@ -22,15 +23,13 @@ class player
     public:
 		player(string nm, int offset); //Constructor, pass in name of player, and unique offset for random num generator, creats player with full decks of each card
         ~player(void);
-        int update_health(int impact); //Updates players health based off results from last battle
-		int get_card_choice(void); //Gets card choice from user, sets data member, returns 0 for success or 1 for invalid input
-		int display_health(void); //Displays players name and health lvl, return 1 if health < 0, and 0 if player is alive
-		int display_card(void); //Displays players current card, returns 1 for error, 0 for success
-		void battle(player* & other_player); //Edits both player's health based on cards played this round
-		int update_decks(void); //Removes card played that round from deck, returns 1 if a card deck becomes empty, 0 if not
-		int check_decks(void); //Checks if there are still unused cards in each deck, returns 0 if there are, or the corresponding number for the deck that has run out
-		int dead(void); //returns 1 if player is dead, 0 if not
-		void won(void); //Returns winning message, call when this player wins
+		int get_card_choice(void); //Gets card choice from user, sets data member, returns 1 for success or 0 for invalid input
+		int display_health(void) const; //Displays players name and health lvl, returns 1 for success, 0 for error
+		int display_card(void) const; //Displays players current card, returns 1 for error, 0 for success
+		int battle(player* & other_player); //Facilitates battle round, Edits both player's health based on cards played this round, returns 1 for success, 0 for error
+		int update_decks(void); //Removes card played that round from deck, returns 0 if a card deck becomes empty, 1 if not
+		int dead(void) const; //returns 1 if player is dead, 0 if not
+		int won(void) const; //Returns winning message, call when this player wins, returns 1 for success, or 0 if player's health is 0 or below
 
 
 		
@@ -39,13 +38,12 @@ class player
 		int health; //Players current health lvl
 		int card_choice; //holds int to represent current card chioce, 1) attack, 2) defense, 3) heal
 						 //
-		lll_node* attack_head;
-		cll_node* defense_rear;
-		vector<heal_card> heal_cards; 
+		lll_node* attack_head; //Holds attack cards
+		cll_node* defense_rear; //Holds defense cards
+		vector<heal_card> heal_cards; //holds heal cards
 
-		int attack_v_defend(player* & other_player); //Returns 0 if one players has an attack card and the other a defense card, returns 1 otherwise
-		void heal(void); //Adds 250 to player's health (the amount of all heal cards)
-		void create_heal_deck(int str);
+		int attack_v_defend(player* & other_player) const; //Returns 1 if one players has an attack card and the other a defense card, returns 0 otherwise
+		int create_heal_deck(int str); //Creates vector heal_cards with as many elements as int passed in, returns 1 for success
 };
 
 

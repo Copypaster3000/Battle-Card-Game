@@ -4,7 +4,7 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is the file for the attack_card class which manages attack cards
+//This is file holds the function definitions for the attack_card class
 //
 
 #include "attack_card.h"
@@ -33,10 +33,12 @@ attack_card::attack_card(const attack_card & object) : card(object.name), streng
 }
 
 
-//assignemtn
+//assignment
 attack_card & attack_card::operator = (const attack_card & og_attack)
 {
 	if(this == &og_attack) return *this; //Check for self assignment
+
+	card::operator=(og_attack); //Class base class card assignment operator
 
 	if(phrase) delete[] phrase; //if phrase has value, deallocate memory
 
@@ -45,10 +47,8 @@ attack_card & attack_card::operator = (const attack_card & og_attack)
 	strength = og_attack.strength; //Set data members
 	type = og_attack.type;
 
-	return *this;
+	return *this; //Return new object that is now exactly the same
 }
-
-
 	
 
 //destructor
@@ -59,14 +59,16 @@ attack_card::~attack_card(void)
 
 
 //displays card stats to user
-void attack_card::display(void) const
+int attack_card::display(void) const
 {
+	if(!name) return 0; //Return error if there's no name
+
 	cout << name << endl;
 	cout << "Strength: " << strength << endl;
 	cout << "Type: " << type << endl;
-	if(strength > 400) cout << phrase;
+	if(strength > 400) cout << phrase; //Displays special phrase if this is an especially strong attack_card
 
-	return;
+	return 1; //for success
 }
 
 

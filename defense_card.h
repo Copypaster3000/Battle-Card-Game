@@ -4,7 +4,9 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is the header file for the defense_card class which is a derivation of the card class
+//This is the header file for the defense_card class which is a derivation of the card class. This class can be used to facilitate
+//defending against an attack card, healing a player for the defense cards heal lvl, and editing defense card stats
+//
 
 #ifndef DEFENSE_CARD_H
 #define DEFENSE_CARD_H
@@ -19,8 +21,9 @@ class defense_card : public card
 		defense_card(void); //Sets card attributes to half power
 		defense_card(string name, int str, int type, int heal); //Sets card attributes to values passed in
 		~defense_card(void);
-		int defend(const lll_node & attack_card); //Defends against attack, returns the amount of damage done to defending player's health
-		int heal_me(int & health); //Heal's players health by heal
+		int defend(const lll_node & attack_card) const; //Defends against attack, returns the amount of damage done to defending player's health, displays to player amount of attack blocked
+		int heal_me(void); //Returns heal value to be added to player's health
+		int super_charge(void); //Super charges this cards stats, returns 1 for success
 
 	protected:
 		int strength;

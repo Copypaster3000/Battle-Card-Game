@@ -5,6 +5,7 @@
 //Program 1
 //6/27/2024
 //This is the header file for the attack_card class which is a derivation of the card class
+//
 
 #ifndef ATTACK_CARD_H
 #define ATTACK_CARD_H
@@ -20,7 +21,7 @@ class attack_card : public card
 		attack_card(const attack_card &); //copy constructor
 		attack_card & operator = (const attack_card &); //assignment 
 		~attack_card(void);
-		void display(void) const; //Displays card stats
+		int display(void) const; //Displays card stats, returns 1 for success, 0 for error
 		int get_strength(void) const; //Returns strength
 		int get_type(void) const; //returns types
 	

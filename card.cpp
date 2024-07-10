@@ -5,7 +5,6 @@
 //Program 1
 //6/27/2024
 //This is the file for the card class definitions
-//
 
 #include "card.h"
 
@@ -56,6 +55,45 @@ card::~card(void)
 {
 	//deallocates memory
 	delete[] name;
+}
+
+
+
+//Pass in new name of card
+int card::change_name(string & new_name)
+{
+	if(name) delete[] name; //deallocate old memory
+					   
+	name = new char[new_name.size() + 1]; //Allocates memory dynamically for new name
+	strcpy(name, new_name.c_str()); //Sets name with string
+
+	return 1;
+}
+
+
+//Changes name to cool name
+int card::ultimate_name(void)
+{
+
+	if(name) delete[] name; //deallocates old memory
+
+	name = new char[strlen("Destroyer of Worlds") + 1]; //allocates memory dynamically 
+	strcpy(name, "Destroyer of Worlds");
+
+	return 1;
+}
+
+
+//Delets name, sets it to nullptr
+int card::delete_name(void)
+{
+	if(name) 
+	{
+		delete[] name;
+		name = nullptr;
+	}
+
+	return 1;
 }
 
 

@@ -5,7 +5,6 @@
 //Program 1
 //6/27/2024
 //This file holds the function definitions for the referee class. This class organizes and runs the game.
-//
 
 #include "referee.h"
 
@@ -23,7 +22,7 @@ referee::~referee(void)
 
 
 //This function explains the game
-void referee::intro(void)
+void referee::intro(void) const
 {
 	cout << "\nWelcome to a game of battle... to the death!\n" << endl;
 	cout << "This is a two player card game. Each player starts with 1000 health." << endl;
@@ -78,20 +77,20 @@ void referee::prepare(int round)
 {
 	cout << endl;
 
-	player1->display_health();
-	player2->display_health();
+	if(!player1->display_health()) cout << "\nError displaying player1's name and health." << endl;
+	if(!player2->display_health()) cout << "\nError displaying player2's namd and health." << endl;
 	cout << endl;
 
 	//Alternates which player chooses card first, prompts user to select again if input is invalid
 	if(round % 2 == 0) 
 	{
-		while(player2->get_card_choice()) cout << "ERROR! Invalid input. Enter an integer from the menu.\n" << endl;
-		while(player1->get_card_choice()) cout << "ERROR! Invalid input. Enter an integer from the menu.\n" << endl;
+		while(!player2->get_card_choice()) cout << "ERROR! Invalid input. Enter an integer from the menu.\n" << endl;
+		while(!player1->get_card_choice()) cout << "ERROR! Invalid input. Enter an integer from the menu.\n" << endl;
 	}
 	else 
 	{
-		while(player1->get_card_choice()) cout << "ERROR! Invalid input. Enter an integer from the menu.\n" << endl;
-		while(player2->get_card_choice()) cout << "ERROR! Invalid input. Enter an integer from the menu.\n" << endl;
+		while(!player1->get_card_choice()) cout << "ERROR! Invalid input. Enter an integer from the menu.\n" << endl;
+		while(!player2->get_card_choice()) cout << "ERROR! Invalid input. Enter an integer from the menu.\n" << endl;
 	}
 
 	if(player1->display_card()) cout << "Error displaying player1's card" << endl;
@@ -104,10 +103,11 @@ void referee::prepare(int round)
 //Facilitate battle, update card decks, check for winner, update round num
 void referee::battle_ground(void)
 {
-	player1->battle(player2); //Damage and healing dealt to both players health
+	if(!player1->battle(player2)) cout << "\nError during battle." << endl; //Battle is facilitated, deals damage and health to palyers
 
-	player1->update_decks(); //Each player updates decks after having played a card
-	player2->update_decks();
+	//Updates each player's deck after having played a card
+	if(!player1->update_decks()) cout << "\nError updating player1's deck." << endl; 
+	if(!player2->update_decks()) cout << "\nError updating player2's deck." << endl;
 
 	
 	return;
@@ -115,7 +115,7 @@ void referee::battle_ground(void)
 
 
 //checks if the game is over
-int referee::winner_check(void)
+int referee::winner_check(void) const
 {
 	if(player1->dead() && player2->dead()) return 3;
 
@@ -128,7 +128,7 @@ int referee::winner_check(void)
 
 
 //end of game
-void referee::results(int winner)
+void referee::results(int winner) const
 {
 	if(winner == 3)
 	{
@@ -147,8 +147,15 @@ void referee::results(int winner)
     	cout << "**********************************" << endl;
     	cout << "\nThe game is now over.\n" << endl;
 	}
-	else if(winner == 2) player1->won();
-	else if(winner == 1) player2->won();
+	else if(winner == 2) 
+	{
+		if(!player1->won()) cout << "\nError, 'winning' player's health is not above 0." << endl;
+	}
+	else if(winner == 1) 
+	{
+		if(!player2->won()) cout << "\nError, 'winning' player's health is not above 0." << endl;
+	}
+
 
 	return;
 }
