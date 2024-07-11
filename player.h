@@ -21,6 +21,7 @@ using namespace std;
 class player
 {
     public:
+		player(void); //default constructor
 		player(string nm, int offset); //Constructor, pass in name of player, and unique offset for random num generator, creats player with full decks of each card
         ~player(void);
 		int get_card_choice(void); //Gets card choice from user, sets data member, returns 1 for success or 0 for invalid input

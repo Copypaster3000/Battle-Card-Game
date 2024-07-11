@@ -11,9 +11,14 @@
 #include <ctime>
 
 
+//default constructor
+player::player(void) : name(""), health(1000), card_choice(1), attack_head(nullptr), defense_rear(nullptr)
+{}
+
+
 //constructor
 //sets players name to string passed in, health to 1000, and creates 100 heal cards in the vector
-player::player(string nm, int offset) : name(nm), health(1000)
+player::player(string nm, int offset) : name(nm), health(1000), card_choice(1), attack_head(nullptr), defense_rear(nullptr)
 {
 	//Generates a random seed for creating cards with random stats
 	srand(time(NULL) + offset);
@@ -32,7 +37,8 @@ player::player(string nm, int offset) : name(nm), health(1000)
 //destructor
 player::~player(void)
 {
-
+	delete attack_head;
+	delete defense_rear;
 
 }
 
@@ -90,7 +96,7 @@ int player::display_card(void) const
 	}
 	else if(card_choice == 2)
 	{
-		if(!defense_rear) return 1;
+		if(!defense_rear) return 1;//Returns  error if no card in deck
 		if(!defense_rear->display()) cout << "\nError displaying defense card." << endl;
 	}
 	else if(card_choice == 3)

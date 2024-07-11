@@ -21,7 +21,10 @@ lll_node::lll_node(const string & strng, int str, int typ) : attack_card(strng, 
 
 //destructor
 lll_node::~lll_node(void)
-{}
+{
+	if(next) delete next;
+}
+
 
 
 //lll creator
@@ -46,6 +49,7 @@ int lll_node::next_card(lll_node* & head)
 
 	lll_node* temp = head; //Holds onto head
 	head = head->next; //Sets head to next card
+	temp->next = nullptr; //Sets node being deleted next ptr to null so that the destructor doesn't delete the node pointed to by next
 	delete temp; //deletes old head
 
 	return 1; //returns success

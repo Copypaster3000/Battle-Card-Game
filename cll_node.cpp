@@ -21,7 +21,9 @@ cll_node::cll_node(const string & name, int str, int tp, int hl) : defense_card(
 
 //destructor
 cll_node::~cll_node(void)
-{}
+{
+	if(next) delete next;
+}
 
 
 //creates cll of 100 attack cards
@@ -60,6 +62,7 @@ int cll_node::next_card(cll_node* & rear)
 	if(!rear) return 0; //Returns 0 for error
 						
 	cll_node* temp = rear->next->next; //Holds onto next front of cll
+	rear->next = nullptr; //sets node being deleted next ptr to null so the destructor doesn't delete the next node
 	delete rear->next; //Deletes old front of cll
 	rear->next = temp; //Sets rear->next to new front of cll
 

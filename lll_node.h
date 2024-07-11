@@ -25,6 +25,8 @@ class lll_node : public attack_card
 
 	private:
 		lll_node* next;
+
+
 };
 
 
