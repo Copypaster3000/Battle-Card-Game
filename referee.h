@@ -4,7 +4,9 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is the header file for the referee class
+//This is the header file for the referee class. This entire game can be run through the functions in this class.
+//This class is used to explain the game, set up player's with their custom names, allow them to choose their cards
+//each turn and battle against each other and declare the winner when the game is over. 
 //
 
 #include "player.h"
@@ -13,8 +15,8 @@
 class referee
 {
 	public:
-		referee(void);
-		~referee(void);
+		referee(void); //Constructor
+		~referee(void); //Destructor
 		void intro(void) const; //Explains the game to the players
 		void setup_players(void); //Sets up players with their names
 		void prepare(int round_num); //Shows players their health and lets them select their cards, pass in round number to alternate who picks card first

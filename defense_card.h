@@ -5,8 +5,7 @@
 //Program 1
 //6/27/2024
 //This is the header file for the defense_card class which is a derivation of the card class. This class can be used to facilitate
-//defending against an attack card, healing a player for the defense cards heal lvl, and editing defense card stats
-//
+//defending against an attack card, healing a player with the defense card's heal lvl, and editing defense card stats
 
 #ifndef DEFENSE_CARD_H
 #define DEFENSE_CARD_H
@@ -26,9 +25,9 @@ class defense_card : public card
 		int super_charge(void); //Super charges this cards stats, returns 1 for success
 
 	protected:
-		int strength;
-		int type;
-		int heal;
+		int strength; //Holds the defense strength of the card
+		int type; //Holds the defense type of the card
+		int heal; //holds the heal strength of the card
 		
 };
 

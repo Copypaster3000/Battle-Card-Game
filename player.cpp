@@ -4,7 +4,9 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is the file for the player class definitions
+//This is the file for the player class definitions. This class manages a linear linked list, a circular linked list, and 
+//a vector, each of different card types. It also manages player's health. Many of these functions are used to compare data,
+//like calling functions to compare the results of the player's cards. 
 
 #include "player.h"
 #include <cstdlib>
@@ -58,8 +60,9 @@ int player::display_health(void) const
 //Returns 1 for success or 0 for invalid input
 int player::get_card_choice(void)
 {
-	int choice;
+	int choice; //used to temporarily hold user's card choice input
 
+	//Prompts user to enter card choice
 	cout << name << " select the type of card you would like to draw for this round." << endl;
 	cout << "1) Attack" << endl;
 	cout << "2) Defense" << endl;
@@ -72,7 +75,7 @@ int player::get_card_choice(void)
 	cin.ignore(100, '\n'); //Clear input stream
 						  
 
-	card_choice = choice;
+	card_choice = choice; //Stores card choice in classed data member
 
 	//Returns 0 for success or 1 for invalid input
 	if(choice == 1 || choice == 2 || choice == 3) return 1;
@@ -86,7 +89,7 @@ int player::display_card(void) const
 {
 	cout << name << "'s card: " << endl;
 
-	if(card_choice == 1)
+	if(card_choice == 1) //If the card chioce is an attack card
 	{
 		//returns error if no card in deck
 		if(!attack_head) return 1;
@@ -94,12 +97,12 @@ int player::display_card(void) const
 		//displays card stats	
 		if(!attack_head->display()) cout << "\nError displaying attack card." << endl;
 	}
-	else if(card_choice == 2)
+	else if(card_choice == 2) //If the card choice is a defense card
 	{
 		if(!defense_rear) return 1;//Returns  error if no card in deck
 		if(!defense_rear->display()) cout << "\nError displaying defense card." << endl;
 	}
-	else if(card_choice == 3)
+	else if(card_choice == 3) //If the card choice is a heal card
 	{
 		if(heal_cards.empty()) return 1;
 		if(!heal_cards.back().display()) cout << "\nError displaying heal card." << endl; //Displays heal card or error message is there is one
@@ -112,11 +115,10 @@ int player::display_card(void) const
 }
 
 
-
 //Pass in the other player object by reference
 int player::attack_v_defend(player* & other_player) const
 {
-	//Returns 0 if it is an attack vs defense card round
+	//Returns 1 if it is an attack vs defense card round
 	if((card_choice == 1 && other_player->card_choice == 2) || (card_choice == 2 && other_player->card_choice == 1)) return 1;
 
 	return 0;
@@ -154,9 +156,8 @@ int player::battle(player* & other_player)
 		if(other_player->card_choice == 3) other_player->health += other_player->heal_cards.back().heal_up();
 	}
 
-	return 1;
+	return 1; //for success
 }
-
 
 
 //Updates card decks
@@ -170,9 +171,7 @@ int player::update_decks(void)
 			return 0; //For error
 		}
 	}
-			
-
-	if(card_choice == 2) //if last card played was a defense card
+	else if(card_choice == 2) //if last card played was a defense card
 	{
 		if(!defense_rear->next_card(defense_rear)) //deletes last defense card player, if there is an error doing that..
 		{
@@ -180,40 +179,38 @@ int player::update_decks(void)
 			return 0; //Returns 0 for error
 		}
 	}
-
-	if(card_choice == 3) 
+	else if(card_choice == 3) //if last card played was a heal card
 	{
-		if(heal_cards.empty())
+		if(heal_cards.empty()) //If there are no more heal cards in vector
 		{
 			cout << "\nError, heal card deck is empty." << endl;
 			return 0;
 		}
 		else
-			heal_cards.pop_back();
+			heal_cards.pop_back(); //Delete heal card at the back of the vector
 	}
 
-
-	return 1;
+	return 1; //success
 }
-
 
 
 //Creates vector of heal cards
 int player::create_heal_deck(int num_cards)
 {
-	for(int i = 0; i < num_cards; ++i)
+	for(int i = 0; i < num_cards; ++i) //For num_cards passed in
 	{
+		//Create heal card with approriate random stats and add it to back of the vector
 		heal_cards.push_back(heal_card("Heal Card", rand() % 100 + 200));
 	}
 
-	return 1;
+	return 1; //for success
 }
 
 
 //retuns 1 if player is dead, 0 if not	
 int player::dead(void) const
 {
-	if(health <= 0) return 1;
+	if(health <= 0) return 1; 
 
 	return 0;
 }
@@ -222,7 +219,7 @@ int player::dead(void) const
 //returns winning message
 int player::won(void) const
 {
-	if(health <= 0) return 0;
+	if(health <= 0) return 0; //If player's health is less than 0 return 0 for error because they could not have won
 
 	cout << "\n********************************************" << endl;
     cout << "*                                          *" << endl;
@@ -237,7 +234,7 @@ int player::won(void) const
     cout << "********************************************" << endl;
     cout << "\nThe game is now over.\n" << endl;
 
-	return 1;
+	return 1; //success
 }
 
 

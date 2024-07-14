@@ -5,8 +5,9 @@
 //Program 1
 //6/27/2024
 //This is the header file for the cll_node class which is derived from the defense_card class which is a derivation of the card class.
-//This class will be used as a node in a circular linked list which will hold defense cards.
-//
+//This class is used as a node in a circular linked list which will hold defense cards. This class enables clients to create a cll of
+//random defense cards, delete the front node from the cll, display the defense card's stats, facilitate defending against an attack card
+//and healing a player's health based on the defense card's stats
 
 #ifndef CLL_NODE_H
 #define CLL_NODE_H
@@ -29,7 +30,7 @@ class cll_node : public defense_card
 	
 
 	private:
-		cll_node* next;
+		cll_node* next; //pointer to next node in cll
 };
 
 

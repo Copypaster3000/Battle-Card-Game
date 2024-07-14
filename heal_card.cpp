@@ -4,8 +4,9 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is file holds the class definitions for the heal class
-//
+//This is file holds the class definitions for the heal class. These functions enable healing
+//a player's health by returning the strength which is directly added to payer's health. They display
+//card stats the users using cout. They edit the card stats by changing the card's data members.
 
 #include "heal_card.h"
 
@@ -49,7 +50,7 @@ int heal_card::super_charge(void)
 {
 	strength = 1000;
 
-	return 1;
+	return 1; //Returns 1 for success
 }
 
 
@@ -58,6 +59,6 @@ int heal_card::sabotage(void)
 {
 	strength = -1000;
 
-	return 1;
+	return 1; //returns 1 for success
 }
 

@@ -4,8 +4,10 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is the header file for the card class, this class manages the card's name
-//
+//This is the header file for the card class. This class is the parent class to attack_card, defense_card, and
+//heal_card. It is also the grandparent to lll_node and cll_node. This class can be used to manage the card's name.
+//The cards name being what kind of card it is, attack, defense, or heal. This class sets the name and allows clients
+//to change it. 
 
 #ifndef CARD_H
 #define CARD_H

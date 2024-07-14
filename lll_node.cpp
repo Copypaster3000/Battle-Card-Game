@@ -4,7 +4,9 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is file for the cll_node class. This class will act as a node in a linear linked list which will hold attack cards
+//This is file for the lll_node class. This class acts as a node in a linear linked list which will hold attack cards.
+//Recursion is used here to create the lll of attack cards. To delete and a card at the front of the lll and set head to 
+//the next card pointers are used. Recursion is also used to count the nodes left in the lll.
 
 #include "lll_node.h"
 
@@ -22,9 +24,8 @@ lll_node::lll_node(const string & strng, int str, int typ) : attack_card(strng, 
 //destructor
 lll_node::~lll_node(void)
 {
-	if(next) delete next;
+	if(next) delete next; //If next is pointing to something, delete it
 }
-
 
 
 //lll creator
@@ -56,5 +57,11 @@ int lll_node::next_card(lll_node* & head)
 }
 
 
-	
+//pass in node to return nodes left in lll after it	
+int lll_node::cards_left(lll_node* head)
+{
+	if(!head) return 0; //If there is no node at pointer return 0 for no node coutned and end recursion
+
+	return 1 + cards_left(head->next); //Return 1 to count node and call funciton with next node
+}
 

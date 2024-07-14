@@ -4,8 +4,9 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is file holds the function definitions for the attack_card class
-//
+//This is file holds the function definitions for the attack_card class. These functions use cout to display
+//card stats to users. They also primaryily return card stats that are directly used to impact player's health. 
+//In the program attack cards are passed into functions of other cards to compare data members and facilitate battle. 
 
 #include "attack_card.h"
 
@@ -21,7 +22,6 @@ attack_card::attack_card(const string & name, int str, int typ) : card(name), st
 	const char* at_phrase = "If you don't block this high strength of an attack you're toast!";
 	phrase = new char[strlen(at_phrase) + 1];
 	strcpy(phrase, at_phrase);
-
 }
 
 
@@ -30,6 +30,13 @@ attack_card::attack_card(const attack_card & object) : card(object.name), streng
 {
 	phrase = new char[strlen(object.phrase) + 1]; //allocates space of string
 	strcpy(phrase, object.phrase); //copies string
+}
+
+
+//destructor
+attack_card::~attack_card(void)
+{
+	delete[] phrase; //Deallocate memory
 }
 
 
@@ -51,13 +58,6 @@ attack_card & attack_card::operator = (const attack_card & og_attack)
 }
 	
 
-//destructor
-attack_card::~attack_card(void)
-{
-	delete[] phrase; //Deallocate memory
-}
-
-
 //displays card stats to user
 int attack_card::display(void) const
 {
@@ -72,13 +72,14 @@ int attack_card::display(void) const
 }
 
 
+//Returns attack card strength
 int attack_card::get_strength(void) const
 {
 	return strength;
 }
 
 
-	
+//Returns attack card type
 int attack_card::get_type(void) const
 {
 	return type;

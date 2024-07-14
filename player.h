@@ -4,8 +4,10 @@
 //CS302
 //Program 1
 //6/27/2024
-//This is the header file for the player class
-//
+//This is the header file for the player class. The player class has the player's name, health, current card choice
+//and a data structure of each kind of card in the game. The funcitons in this class are used to facilitate the things
+//that need to be done each round of the game including getting the palyer's card choice, displaying the palyer's health
+//and card, facilitating battle and updating the player's health based on the cards played. 
 
 #ifndef PLAYER_H
 #define PLAYER_H
@@ -23,7 +25,7 @@ class player
     public:
 		player(void); //default constructor
 		player(string nm, int offset); //Constructor, pass in name of player, and unique offset for random num generator, creats player with full decks of each card
-        ~player(void);
+        ~player(void); //destructor
 		int get_card_choice(void); //Gets card choice from user, sets data member, returns 1 for success or 0 for invalid input
 		int display_health(void) const; //Displays players name and health lvl, returns 1 for success, 0 for error
 		int display_card(void) const; //Displays players current card, returns 1 for error, 0 for success
@@ -38,7 +40,7 @@ class player
 		string name; //Players custom name
 		int health; //Players current health lvl
 		int card_choice; //holds int to represent current card chioce, 1) attack, 2) defense, 3) heal
-						 //
+						 
 		lll_node* attack_head; //Holds attack cards
 		cll_node* defense_rear; //Holds defense cards
 		vector<heal_card> heal_cards; //holds heal cards
