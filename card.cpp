@@ -1,11 +1,8 @@
 //card.cpp
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
-//This is the file holds the class definitions for the card class. The functions manage the card name
-//which is a char* pointer that holds the cards name which is dynamically allocated. 
+//This is the file that holds the class definitions for the card class. The functions manage the card name
+//which is a char* pointer that holds the card's name which is dynamically allocated. 
 
 #include "card.h"
 
