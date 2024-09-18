@@ -1,11 +1,8 @@
 //referee.h
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
 //This is the header file for the referee class. This entire game can be run through the functions in this class.
-//This class is used to explain the game, set up player's with their custom names, allow them to choose their cards
+//This class is used to explain the game, set up players with their custom names, allow them to choose their cards
 //each turn and battle against each other and declare the winner when the game is over. 
 //
 
