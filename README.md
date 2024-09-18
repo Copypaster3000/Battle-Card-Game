@@ -1,6 +1,6 @@
 # Battle Card Game
 
-This project is a two-player battle card game written in C++. Each player is dealt three types of cards (attack, defense, heal) and must strategically select cards each round to reduce their opponent’s health to zero. The game leverages custom data structures, an inheritance hierarchy, and object-oriented programming to provide an engaging card-based battle system.
+This project is a two-player battle card game written in C++. Each player is dealt three decks of different types of cards (attack, defense, heal) and must strategically select cards each round to reduce their opponent’s health to zero. The game leverages custom data structures, an inheritance hierarchy, and object-oriented programming to provide an engaging card-based battle system.
 
 ## Features
 - Inheritance Hierarchy: The data structures utilize an inheritance hierarchy that simplifies the handling of different card types, ensuring consistency across the game's logic and reducing redundancy in code.
