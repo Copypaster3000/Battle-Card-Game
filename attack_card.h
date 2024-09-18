@@ -1,12 +1,9 @@
 //attack_card.h
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
 //This is the header file for the attack_card class which is a derivation of the card class. This class enables
-//clients to enteract with attack_card data members, which are the stats of attack cards in the game. This class
-//enables clients to display card stats the users and to help facilitate battles that invlove attack cards.
+//clients to interact with attack_card data members, which are the stats of attack cards in the game. This class
+//enables clients to display card stats to users and helps facilitate battles that involve attack cards.
 
 #ifndef ATTACK_CARD_H
 #define ATTACK_CARD_H
