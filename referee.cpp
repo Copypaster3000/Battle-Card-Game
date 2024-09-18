@@ -1,8 +1,5 @@
 //referee.cpp
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
 //This file holds the function definitions for the referee class. This class organizes and runs the game.
 //It is mainly used to call and organize functions from the player class. 
@@ -27,22 +24,22 @@ referee::~referee(void)
 void referee::intro(void) const
 {
 	cout << "\nWelcome to a game of battle... to the death!\n" << endl;
-	cout << "This is a two player card game. Each player starts with 1000 health." << endl;
-	cout << "The first player to reduce their opponents health to zero wins. Each" << endl;
+	cout << "This is a two-player card game. Each player starts with 1000 health." << endl;
+	cout << "The first player to reduce their opponent's health to zero wins. Each" << endl;
 	cout << "player is dealt three decks of cards at the beginning of the game." << endl;
 	cout << "There are attack cards, defense cards, and heal cards. Each round both" << endl;
 	cout << "players will select one card from a deck of their choice. The cards will" << endl;
-	cout << "then be played against each other and the results will impact each players" << endl;
+	cout << "then be played against each other and the results will impact each player's" << endl;
 	cout << "health. Attack cards have a strength level of 500 to 0. The level of strength is the" << endl;
-	cout << "amount of damage that can be done to the enemies health. However there are two" << endl;
+	cout << "amount of damage that can be done to the enemy's health. However, there are two" << endl;
 	cout << "different types of attacks. If the enemy chooses a defense card that corresponds" << endl;
 	cout << "to the type of attack card you have, your attack will be reduced in strength by" << endl;
 	cout << "the strength of the defense card. If the defense card does not defend the attack" << endl;
-	cout << "type, all of the attack's damage will be subtracted from the enemies health." << endl;
+	cout << "type, all of the attack's damage will be subtracted from the enemy's health." << endl;
 	cout << "Defense cards have between 375 to 0 strength. Again, if the defense type does" << endl;
 	cout << "not block the attack the damage will still be done. There are two types of attack" << endl;
 	cout << "and defense cards. Defense cards also have between 150 to 0 heal strength. Regardless" << endl;
-	cout << "of the other players card, the heal strength will be added to your health." << endl;
+	cout << "of the other player's card, the heal strength will be added to your health." << endl;
 	cout << "Lastly there are heal cards. Heal cards have strength from 300 to 200, which increases your health" << endl;
 	cout << "each time you play it. But they do not defend against attacks or do any damage to your opponent." << endl;
 	cout << "The stats for all the cards are randomly generated to be somewhere within their listed ranges." << endl;
