@@ -1,12 +1,9 @@
 //player.h
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
 //This is the header file for the player class. The player class has the player's name, health, current card choice
-//and a data structure of each kind of card in the game. The funcitons in this class are used to facilitate the things
-//that need to be done each round of the game including getting the palyer's card choice, displaying the palyer's health
+//and a data structure of each kind of card in the game. The functions in this class are used to facilitate things
+//that need to be done each round of the game including getting the player's card choice, displaying the player's health
 //and card, facilitating battle and updating the player's health based on the cards played. 
 
 #ifndef PLAYER_H
