@@ -8,11 +8,11 @@
 #include "lll_node.h"
 
 
-//defualt constructor
+//default constructor
 lll_node::lll_node(void) : attack_card("Attack Card", 250, 1), next(nullptr)
 {}
 
-//constructor. The initilzation list calls it's parent class's constructor to set the strength and attack type for the attack card
+//constructor. The initialization list calls its parent class's constructor to set the strength and attack type for the attack card
 lll_node::lll_node(const string & strng, int str, int typ) : attack_card(strng, str, typ), next(nullptr)
 {
 }
@@ -57,8 +57,8 @@ int lll_node::next_card(lll_node* & head)
 //pass in node to return nodes left in lll after it	
 int lll_node::cards_left(lll_node* head)
 {
-	if(!head) return 0; //If there is no node at pointer return 0 for no node coutned and end recursion
+	if(!head) return 0; //If there is no node at pointer return 0 for no node counted and end recursion
 
-	return 1 + cards_left(head->next); //Return 1 to count node and call funciton with next node
+	return 1 + cards_left(head->next); //Return 1 to count node and call function with next node
 }
 
