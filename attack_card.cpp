@@ -1,8 +1,5 @@
 //attack_card.cpp
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
 //This is file holds the function definitions for the attack_card class. These functions use cout to display
 //card stats to users. They also primaryily return card stats that are directly used to impact player's health. 
