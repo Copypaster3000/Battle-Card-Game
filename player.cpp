@@ -1,8 +1,5 @@
 //player.cpp
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
 //This is the file for the player class definitions. This class manages a linear linked list, a circular linked list, and 
 //a vector, each of different card types. It also manages player's health. Many of these functions are used to compare data,
@@ -19,7 +16,7 @@ player::player(void) : name(""), health(1000), card_choice(1), attack_head(nullp
 
 
 //constructor
-//sets players name to string passed in, health to 1000, and creates 100 heal cards in the vector
+//sets player's name to string passed in, health to 1000, and creates 100 heal cards in the vector
 player::player(string nm, int offset) : name(nm), health(1000), card_choice(1), attack_head(nullptr), defense_rear(nullptr)
 {
 	//Generates a random seed for creating cards with random stats
@@ -56,7 +53,7 @@ int player::display_health(void) const
 }
 
 
-//Gets card choice from user and sets player data memeber
+//Gets card choice from user and sets player data member
 //Returns 1 for success or 0 for invalid input
 int player::get_card_choice(void)
 {
@@ -84,7 +81,7 @@ int player::get_card_choice(void)
 }
 
 
-//Displays players current chosen card
+//Displays player's current chosen card
 int player::display_card(void) const
 {
 	cout << name << "'s card: " << endl;
@@ -147,7 +144,7 @@ int player::battle(player* & other_player)
 		if(card_choice == 1) other_player->health -= attack_head->get_strength();
 		if(other_player->card_choice == 1) health -= other_player->attack_head->get_strength();
 
-		//Heals player's health if they chose defense card
+		//Heals player's health if they choose defense card
 		if(card_choice == 2) health += defense_rear->heal_up();
 		if(other_player->card_choice == 2) other_player->health += other_player->defense_rear->heal_up();
 
@@ -199,7 +196,7 @@ int player::create_heal_deck(int num_cards)
 {
 	for(int i = 0; i < num_cards; ++i) //For num_cards passed in
 	{
-		//Create heal card with approriate random stats and add it to back of the vector
+		//Create heal card with appropriate random stats and add it to back of the vector
 		heal_cards.push_back(heal_card("Heal Card", rand() % 100 + 200));
 	}
 
@@ -207,7 +204,7 @@ int player::create_heal_deck(int num_cards)
 }
 
 
-//retuns 1 if player is dead, 0 if not	
+//returns 1 if player is dead, 0 if not	
 int player::dead(void) const
 {
 	if(health <= 0) return 1; 
