@@ -1,10 +1,7 @@
 //lll_node.cpp
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
-//This is file for the lll_node class. This class acts as a node in a linear linked list which will hold attack cards.
+//This is the file for the lll_node class. This class acts as a node in a linear linked list which will hold attack cards.
 //Recursion is used here to create the lll of attack cards. To delete and a card at the front of the lll and set head to 
 //the next card pointers are used. Recursion is also used to count the nodes left in the lll.
 
