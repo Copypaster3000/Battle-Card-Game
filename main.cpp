@@ -13,7 +13,7 @@ int main()
 {
 	referee game; //Creates a referee object
 	int round_num = 0; //Used to keep track of what round it is to alternate between players who picks their card first
-	int winner = 0; //Used in while loop and to pass into a function to indicate which player won the game
+	int winner = 0; //Used in a while loop and to pass into a function to indicate which player won the game
 
 	game.intro(); //Tells players the rules
 	game.setup_players(); //Get player's name from users
