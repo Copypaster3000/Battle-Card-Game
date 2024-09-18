@@ -1,12 +1,9 @@
 //main.cpp
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
-//This is file holds the main funciton. This is used to organize the program at the highest level. It is very simple and
-//straight forward. This program runs a two player card game. Each round, each player selects one card, either an attack, 
-//defense, or heal card. Then then cards are played against each other. Based on the results of that round each player's
+//This file holds the main function. This is used to organize the program at the highest level. It is very simple and
+//straight forward. This program runs a two-player card game. Each round, each player selects one card, either an attack, 
+//defense, or heal card. Then the cards are played against each other. Based on the results of that round each player's
 //health is affected. The game continues until on player's health goes below zero and then the other player has won. The
 //program gives players more detailed instructions when it is played. 
 
