@@ -1,11 +1,8 @@
 //cll_node.cpp
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
-//This is file holds the functions for the cll_node class, this class acts as a node in a cll and each node is also
-//a defense card, it's parent class is defense_card which holds the card stats. The functions dealing with cards being 
+//This file holds the functions for the cll_node class, this class acts as a node in a cll and each node is also
+//a defense card, its parent class is defense_card which holds the card stats. The functions dealing with cards being 
 //used in battle always use the card at the front of the cll, that is the card that is also deleted after being played. 
 //Recursion is used to create the cll.
 
