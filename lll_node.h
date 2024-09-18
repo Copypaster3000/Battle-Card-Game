@@ -1,13 +1,10 @@
 //lll_node.h
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
-//This is the header file for the lll_card which is dervied from the attack_card class which is derived from the card class.
+//This is the header file for the lll_card which is derived from the attack_card class which is derived from the card class.
 //This class will be used as the node for a linear linked list which will hold attack cards. This class enables clients to 
 //create a linear linked list of attack cards, delete the front of the lll and set the next node to head, removing the last
-//played card from the data strucutre, and count the number of nodes left in the lll. 
+//played card from the data structure, and count the number of nodes left in the lll. 
 
 #ifndef LLL_NODE_H
 #define LLL_NODE_H
