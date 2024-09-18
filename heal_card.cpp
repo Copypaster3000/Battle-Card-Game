@@ -1,10 +1,7 @@
 //heal_card.cpp
 //Drake Wheeler
-//Karla Fant
-//CS302
-//Program 1
 //6/27/2024
-//This is file holds the class definitions for the heal class. These functions enable healing
+//This file holds the class definitions for the heal class. These functions enable healing
 //a player's health by returning the strength which is directly added to payer's health. They display
 //card stats the users using cout. They edit the card stats by changing the card's data members.
 
